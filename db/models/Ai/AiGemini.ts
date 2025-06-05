@@ -34,6 +34,7 @@ export type TAiGemini$InsertData = TableInsertData<
 >;
 export type TAiGemini$UpdateData = TableUpdateData<TAiGemini, 'id' | 'type' | 'req_text', 'update_date'>;
 
+export class TAiGeminiSubjectInfo {}
 export default TAiGemini;
 
 declare module 'knex/types/tables' {

@@ -9,9 +9,9 @@ export type TNews$Status = keyof typeof Status;
 export const TNews$Status = makeEnum('status', Status);
 
 /** AI 구분 */
-const AiType = { CG: 'Chat GPT', GG: 'Google Gemini' };
+const AiType = { GG: 'Google Gemini' };
 export type TNews$AiType = keyof typeof AiType;
-export const TNews$AiType = makeEnum('ai_type', AiType);
+export const TNews$AiType = makeEnum('ai_type', AiType, { GG: 'GoogleGemini' });
 
 export interface TNews {
   /** Primary Key */
@@ -23,21 +23,17 @@ export interface TNews {
   news_category_id: TNewsCategory['id']; // 뉴스 카테고리 ID // int, FK
   news_date: Date; // 뉴스 날짜 // date
   status: TNews$Status; // 상태
-  ai_type: TNews$AiType | null; // AI 구분
-  ai_parent_id: number | null; // AI 부모 ID // int, nullable
-  ai_parent_sub_id: number | null; // AI 부모 서브 ID // int, nullable
+  ai_type: TNews$AiType; // AI 구분
+  ai_subject_id: number; // AI 부모 ID // int, nullable
+  ai_subject_sub_id: number; // AI 부모 서브 ID // int, nullable
   create_date: Date; // 등록일자 // datetime
   update_date: Date; // 수정일자 // datetime
 }
 
-export type TNews$InsertData = TableInsertData<
-  TNews,
-  'id',
-  'img_url' | 'ai_type' | 'ai_parent_id' | 'ai_parent_sub_id'
->;
+export type TNews$InsertData = TableInsertData<TNews, 'id', 'img_url'>;
 export type TNews$UpdateData = TableUpdateData<
   TNews,
-  'id' | 'news_key' | 'ai_type' | 'ai_parent_id' | 'ai_parent_sub_id' | 'create_date',
+  'id' | 'news_key' | 'ai_type' | 'ai_subject_id' | 'ai_subject_sub_id' | 'create_date',
   'update_date'
 >;
 

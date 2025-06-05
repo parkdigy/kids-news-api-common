@@ -1,6 +1,6 @@
 import { MySqlQuery } from '@db_query_common';
 import { Knex } from 'knex';
-import { TNews$Status } from '@kac_db_models';
+import { TNews$AiType, TNews$Status } from '@kac_db_models';
 import { uuid } from '@pdg/util';
 
 const tableName: Knex.TableNames = 'news';
@@ -8,6 +8,7 @@ type tableName = typeof tableName;
 
 export default class News extends MySqlQuery<tableName> {
   Status = TNews$Status;
+  AiType = TNews$AiType;
 
   constructor() {
     super(tableName);

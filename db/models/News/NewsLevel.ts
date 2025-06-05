@@ -26,43 +26,6 @@ export interface TNewsLevel {
 export type TNewsLevel$InsertData = TableInsertData<TNewsLevel, 'id', 'words' | 'img_url'>;
 export type TNewsLevel$UpdateData = TableUpdateData<TNewsLevel, 'id' | 'news_id' | 'create_date', 'update_date'>;
 
-export class NewsTestInfo {
-  id!: number;
-  question!: string;
-  options!: string[];
-  answer!: string;
-}
-
-export class NewsDiscussionInfo {
-  id!: number;
-  question!: string;
-  answer!: string;
-}
-
-export class NewsWordInfo {
-  id!: number;
-  word!: string;
-  meaning!: string;
-}
-
-export class NewsParagraphInfo {
-  id!: number;
-  img_url!: string | null;
-  title!: string;
-  content!: string;
-}
-
-export class NewsLevelInfo {
-  level!: number;
-  img_url!: string | null;
-  title!: string;
-  description!: string;
-  paragraphs!: NewsParagraphInfo[];
-  words!: NewsWordInfo[];
-  discussions!: NewsDiscussionInfo[];
-  tests!: NewsTestInfo[];
-}
-
 export default TNewsLevel;
 
 declare module 'knex/types/tables' {
