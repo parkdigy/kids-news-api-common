@@ -8,7 +8,7 @@ export type TAiGemini$Type = keyof typeof Type;
 export const TAiGemini$Type = makeEnum('status', Type);
 
 /** 상태 */
-const Status = { WAIT: '응답 대기중', SUCCESS: '성공', FAIL: '실패' };
+const Status = { WAIT: '대기중', PROCESSING: '처리중', SUCCESS: '성공', FAIL: '실패' };
 export type TAiGemini$Status = keyof typeof Status;
 export const TAiGemini$Status = makeEnum('status', Status);
 
