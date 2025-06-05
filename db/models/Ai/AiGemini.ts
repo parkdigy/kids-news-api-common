@@ -21,11 +21,17 @@ export interface TAiGemini {
   res_text: string | null; // 응답 텍스트 // longtext, nullable
   status: TAiGemini$Status; // 상태
   fail_reason: string | null; // 실패 사유 // text, nullable
+  parent_id: number | null; // 부모 ID // int, nullable
+  parent_sub_id: number | null; // 부모 하위 ID // int, nullable
   create_date: Date; // 등록일자 // datetime
   update_date: Date; // 수정일자 // datetime
 }
 
-export type TAiGemini$InsertData = TableInsertData<TAiGemini, 'id', 'res_text' | 'fail_reason'>;
+export type TAiGemini$InsertData = TableInsertData<
+  TAiGemini,
+  'id',
+  'res_text' | 'fail_reason' | 'parent_id' | 'parent_sub_id'
+>;
 export type TAiGemini$UpdateData = TableUpdateData<TAiGemini, 'id' | 'type' | 'req_text', 'update_date'>;
 
 export default TAiGemini;
