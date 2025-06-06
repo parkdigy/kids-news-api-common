@@ -9,9 +9,9 @@ export type TNews$Status = keyof typeof Status;
 export const TNews$Status = makeEnum('status', Status);
 
 /** AI 구분 */
-const AiType = { GG: 'Google Gemini' };
+const AiType = { GG: 'Google Gemini', OC: 'OpenAi Chat-GPT' };
 export type TNews$AiType = keyof typeof AiType;
-export const TNews$AiType = makeEnum('ai_type', AiType, { GG: 'GoogleGemini' });
+export const TNews$AiType = makeEnum('ai_type', AiType, { GG: 'GoogleGemini', OC: 'OpenAiChatGpt' });
 
 export interface TNews {
   /** Primary Key */

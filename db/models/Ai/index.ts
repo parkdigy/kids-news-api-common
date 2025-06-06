@@ -1,1 +1,1 @@
-export * from './AiGemini';
+export * from './Ai';
