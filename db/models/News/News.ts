@@ -24,13 +24,14 @@ export interface TNews {
   news_date: Date; // 뉴스 날짜 // date
   status: TNews$Status; // 상태
   ai_type: TNews$AiType; // AI 구분
-  ai_subject_id: number; // AI 부모 ID // int, nullable
-  ai_subject_sub_id: number; // AI 부모 서브 ID // int, nullable
+  ai_subject_id: number; // AI 부모 ID // int
+  ai_subject_sub_id: number; // AI 부모 서브 ID // int
+  ai_img_default_styles: string | null; // AI 이미지 기본 스타일 // text, nullable
   create_date: Date; // 등록일자 // datetime
   update_date: Date; // 수정일자 // datetime
 }
 
-export type TNews$InsertData = TableInsertData<TNews, 'id', 'img_url'>;
+export type TNews$InsertData = TableInsertData<TNews, 'id', 'img_url' | 'ai_img_default_styles'>;
 export type TNews$UpdateData = TableUpdateData<
   TNews,
   'id' | 'news_key' | 'ai_type' | 'ai_subject_id' | 'ai_subject_sub_id' | 'create_date',
