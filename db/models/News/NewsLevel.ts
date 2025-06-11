@@ -2,6 +2,12 @@ import { Knex } from 'knex';
 import { TableInsertData, TableUpdateData } from '@db_models_types';
 import TNews, { TNews$Status } from './News';
 import { TNewsCategory } from '@kac_db_models';
+import { makeEnum } from '@db_models_util';
+
+/** 상태 */
+const Level = { 1: '레벨 1', 2: '레벨 2', 3: '레벨 3' };
+export type TNewsLevel$Level = keyof typeof Level;
+export const TNewsLevel$Level = makeEnum('level', Level, { 1: 'Level1', 2: 'Level2', 3: 'Level3' });
 
 /** 상태 */
 export type TNewsLevel$Status = TNews$Status;
@@ -13,7 +19,7 @@ export interface TNewsLevel {
   /** Others */
   news_level_key: string; // 뉴스 레벨 KEY // varchar(32), UQ
   news_id: TNews['id']; // 뉴스 ID // int, FK
-  level: number; // 레벨 // tinyint
+  level: TNewsLevel$Level; // 레벨 // tinyint
   news_date: Date; // 뉴스 날짜 // date
   news_category_id: TNewsCategory['id']; // 뉴스 카테고리 ID // int, FK
   img_url: string | null; // 이미지 URL // varchar(1024), nullable
