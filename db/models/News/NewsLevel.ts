@@ -19,11 +19,13 @@ export interface TNewsLevel {
   words: string; // 단어 // text
   discussions: string; // 토론 // text
   tests: string; // 문제 // text
+  status: TNews['status']; // 상태
+  view_id: number | null; // 조회 ID // int, nullable
   create_date: Date; // 등록일자
   update_date: Date; // 수정일자
 }
 
-export type TNewsLevel$InsertData = TableInsertData<TNewsLevel, 'id', 'words' | 'img_url'>;
+export type TNewsLevel$InsertData = TableInsertData<TNewsLevel, 'id', 'words' | 'img_url' | 'view_id'>;
 export type TNewsLevel$UpdateData = TableUpdateData<TNewsLevel, 'id' | 'news_id' | 'create_date', 'update_date'>;
 
 export default TNewsLevel;
