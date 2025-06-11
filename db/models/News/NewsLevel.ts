@@ -1,7 +1,11 @@
 import { Knex } from 'knex';
 import { TableInsertData, TableUpdateData } from '@db_models_types';
-import TNews from './News';
+import TNews, { TNews$Status } from './News';
 import { TNewsCategory } from '@kac_db_models';
+
+/** 상태 */
+export type TNewsLevel$Status = TNews$Status;
+export const TNewsLevel$Status = TNews$Status;
 
 export interface TNewsLevel {
   /** Primary Key */
@@ -19,7 +23,7 @@ export interface TNewsLevel {
   words: string; // 단어 // text
   discussions: string; // 토론 // text
   tests: string; // 문제 // text
-  status: TNews['status']; // 상태
+  status: TNewsLevel$Status; // 상태
   view_id: number | null; // 조회 ID // int, nullable
   create_date: Date; // 등록일자
   update_date: Date; // 수정일자
