@@ -5,6 +5,7 @@
 import { Knex } from 'knex';
 import { TableInsertData, TableUpdateData } from '@db_models_types';
 import { makeEnum } from '@db_models_util';
+import { TNewsLevel$Level } from '../News';
 
 /** 상태 */
 const Status = { ON: '사용', RESIGN: '탈퇴' };
@@ -34,7 +35,7 @@ export interface TUser {
   reg_os: TUser$RegOs; // 가입 OS
   reg_type: TUser$RegType; // 가입 구분
   resign_date: Date | null; // 탈퇴 일자
-  news_level: number; // 뉴스 레벨 // tinyint, default:1
+  news_level: TNewsLevel$Level; // 뉴스 레벨 // tinyint, default:1
   status: TUser$Status; // 상태
   create_date: Date; // 등록일자
   update_date: Date; // 수정일자
