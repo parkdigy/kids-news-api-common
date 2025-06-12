@@ -1,5 +1,7 @@
+import { TAi, TNewsLevel$Level } from '@kac_db_models';
+
 export class NewsSubjectInfo {
-  id!: number;
+  id!: TAi['id'];
   title!: string;
   description!: string;
   category!: string;
@@ -33,7 +35,7 @@ export class NewsParagraphInfo {
 }
 
 export class NewsLevelInfo {
-  level!: number;
+  level!: TNewsLevel$Level;
   img_url!: string | null;
   title!: string;
   description!: string;
