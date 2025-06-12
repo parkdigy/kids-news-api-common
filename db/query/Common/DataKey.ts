@@ -20,7 +20,7 @@ export default class DataKey extends MySqlQuery<tableName> {
    * 데이터 KEY 조회
    * ******************************************************************************************************************/
   async getDataKey(req: MyRequest, id: TDataKey$Id) {
-    const info = await db.DataKey.find(req, { id }).select('data_key');
+    const info = await this.find(req, { id }).select('data_key');
     if (info) {
       return info.data_key;
     } else {
