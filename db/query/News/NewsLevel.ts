@@ -1,6 +1,5 @@
 import { MySqlQuery } from '@db_query_common';
 import { Knex } from 'knex';
-import { uuid } from '@pdg/util';
 import { TNewsLevel$Level, TNewsLevel$Status } from '@kac_db_models';
 
 const tableName: Knex.TableNames = 'news_level';
@@ -15,9 +14,9 @@ export default class NewsLevel extends MySqlQuery<tableName> {
   }
 
   async newKey(req: MyRequest) {
-    let key = uuid(true);
+    let key = util.uuid(true);
     while (await this.exists(req, { news_level_key: key })) {
-      key = uuid(true);
+      key = util.uuid(true);
     }
     return key;
   }
