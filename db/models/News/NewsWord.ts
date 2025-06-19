@@ -2,7 +2,7 @@ import { Knex } from 'knex';
 import { TableInsertData, TableUpdateData } from '@db_models_types';
 import { TNewsLevel$Level } from '@kac_db_models';
 
-export interface TWord {
+export interface TNewsWord {
   /** Primary Key */
   id: number; // PK, AI, int
   /** Others */
@@ -13,13 +13,13 @@ export interface TWord {
   update_date: Date; // 수정일자
 }
 
-export type TWord$InsertData = TableInsertData<TWord, 'id'>;
-export type TWord$UpdateData = TableUpdateData<TWord, 'id' | 'create_date', 'update_date'>;
+export type TNewsWord$InsertData = TableInsertData<TNewsWord, 'id'>;
+export type TNewsWord$UpdateData = TableUpdateData<TNewsWord, 'id' | 'create_date', 'update_date'>;
 
-export default TWord;
+export default TNewsWord;
 
 declare module 'knex/types/tables' {
   interface Tables {
-    word: Knex.CompositeTableType<TWord, TWord$InsertData, TWord$UpdateData>;
+    news_word: Knex.CompositeTableType<TNewsWord, TNewsWord$InsertData, TNewsWord$UpdateData>;
   }
 }
