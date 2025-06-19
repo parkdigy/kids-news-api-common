@@ -5,3 +5,4 @@ export * from './Notice';
 export * from './User';
 export * from './News';
 export * from './Ai';
+export * from './Word';
