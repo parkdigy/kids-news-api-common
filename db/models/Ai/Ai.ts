@@ -8,9 +8,9 @@ export type TAi$Engine = keyof typeof Engine;
 export const TAi$Engine = makeEnum('engine', Engine, { GG: 'GoogleGemini', OC: 'OpenAiChatGpt' });
 
 /** 구분 */
-const Type = { SUBJECT: '주제', CONTENT: '뉴스 기사', IMG: '이미지' };
+const Type = { SUBJECT: '주제', CONTENT: '뉴스 기사', IMG: '이미지', WORD: '단어' };
 export type TAi$Type = keyof typeof Type;
-export const TAi$Type = makeEnum('status', Type);
+export const TAi$Type = makeEnum('type', Type);
 
 /** 상태 */
 const Status = { WAIT: '대기중', PROCESSING: '처리중', SUCCESS: '성공', FAIL: '실패' };
