@@ -27,6 +27,7 @@ export interface TNewsLevel {
   description: string; // 소개 내용 // text
   paragraphs: string; // 문단 // text
   words: string; // 단어 // text
+  key_word: string; // 핵심 단어 // text
   discussions: string; // 토론 // text
   tests: string; // 문제 // text
   status: TNewsLevel$Status; // 상태

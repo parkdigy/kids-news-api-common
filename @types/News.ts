@@ -16,12 +16,25 @@ export class NewsTestInfo {
 
 export class NewsDiscussionInfo {
   question!: string;
-  answer!: string;
+  student!: {
+    thinking: string[];
+  };
+
+  teacher!: {
+    hint: string;
+    thinking: string[];
+  };
 }
 
 export class NewsWordInfo {
   word!: string;
   meaning!: string;
+}
+
+export class NewsKeyWordInfo {
+  word!: string;
+  meaning!: string;
+  sentence!: string;
 }
 
 export class NewsParagraphInfo {
@@ -37,6 +50,7 @@ export class NewsLevelInfo {
   description!: string;
   paragraphs!: NewsParagraphInfo[];
   words!: NewsWordInfo[];
+  key_word!: NewsKeyWordInfo;
   discussions!: NewsDiscussionInfo[];
   tests!: NewsTestInfo[];
 }
