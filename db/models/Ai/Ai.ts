@@ -3,12 +3,12 @@ import { TableInsertData, TableUpdateData } from '@db_models_types';
 import { makeEnum } from '@db_models_util';
 
 /** 엔진 - !!!!!!!!!! 수정 시 반드시 DB도 수정해야 함 !!!!!!!!!! */
-const Engine = { GG: 'Google Gemini', OC: 'OpenAi Chat-GPT' };
+const Engine = { GG: 'Google Gemini', GC: 'Google Cloud', OC: 'OpenAi Chat-GPT' };
 export type TAi$Engine = keyof typeof Engine;
-export const TAi$Engine = makeEnum('engine', Engine, { GG: 'GoogleGemini', OC: 'OpenAiChatGpt' });
+export const TAi$Engine = makeEnum('engine', Engine, { GG: 'GoogleGemini', GC: 'GoogleCloud', OC: 'OpenAiChatGpt' });
 
 /** 구분 - !!!!!!!!!! 수정 시 반드시 DB도 수정해야 함 !!!!!!!!!! */
-const Type = { SUBJECT: '주제', CONTENT: '뉴스 기사', IMG: '이미지', WORD: '단어' };
+const Type = { SUBJECT: '주제', CONTENT: '뉴스 기사', IMG: '이미지', WORD: '단어', TTS: 'TTS' };
 export type TAi$Type = keyof typeof Type;
 export const TAi$Type = makeEnum('type', Type);
 
