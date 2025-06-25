@@ -12,10 +12,12 @@ export class NewsTestInfo {
   question!: string;
   options!: string[];
   answer!: string;
+  tts_url!: string | null;
 }
 
 export class NewsDiscussionInfo {
   question!: string;
+  tts_url!: string | null;
   student!: {
     thinking: string[];
   };
@@ -29,23 +31,27 @@ export class NewsDiscussionInfo {
 export class NewsWordInfo {
   word!: string;
   meaning!: string;
+  tts_url!: string | null;
 }
 
 export class NewsKeyWordInfo {
   word!: string;
   meaning!: string;
   sentence!: string;
+  tts_url!: string | null;
 }
 
 export class NewsParagraphInfo {
-  img_url!: string | null;
   title!: string;
   content!: string;
+  img_url!: string | null;
+  tts_url!: string | null;
 }
 
 export class NewsLevelInfo {
   level!: TNewsLevel$Level;
   img_url!: string | null;
+  tts_url!: string | null;
   title!: string;
   description!: string;
   paragraphs!: NewsParagraphInfo[];
