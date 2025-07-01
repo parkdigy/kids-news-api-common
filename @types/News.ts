@@ -30,8 +30,10 @@ export class NewsDiscussionInfo {
 
 export class NewsWordInfo {
   word!: string;
+  word_tts_url!: string | null;
   meaning!: string;
-  tts_url!: string | null;
+  meaning_tts_url!: string | null;
+  texts!: string[];
 }
 
 export class NewsKeyWordInfo {
