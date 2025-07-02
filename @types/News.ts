@@ -34,6 +34,7 @@ export class NewsWordInfo {
   meaning!: string;
   meaning_tts_url!: string | null;
   texts!: string[];
+  crossword!: boolean;
 }
 
 export class NewsKeyWordInfo {
