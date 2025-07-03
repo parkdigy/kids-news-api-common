@@ -8,7 +8,7 @@ export class NewsSubjectInfo {
   date!: string;
 }
 
-export class NewsTestInfo {
+export class NewsQuizInfo {
   question!: string;
   options!: string[];
   answer!: string;
@@ -62,5 +62,5 @@ export class NewsLevelInfo {
   words!: NewsWordInfo[];
   key_word!: NewsKeyWordInfo;
   discussions!: NewsDiscussionInfo[];
-  tests!: NewsTestInfo[];
+  quizzes!: NewsQuizInfo[];
 }
