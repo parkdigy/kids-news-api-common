@@ -42,6 +42,7 @@ export class NewsKeyWordInfo {
   meaning!: string;
   sentence!: string;
   tts_url!: string | null;
+  crossword!: boolean;
 }
 
 export class NewsParagraphInfo {
