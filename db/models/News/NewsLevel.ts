@@ -30,7 +30,8 @@ export interface TNewsLevel {
   words: string; // 단어 // text
   key_word: string; // 핵심 단어 // text
   discussions: string; // 토론 // text
-  quizzes: string; // 문제 // text
+  quizzes: string; // 문해력 퀴즈 // text
+  sentence_quizzes: string; // 문장 완성 퀴즈 // text
   status: TNewsLevel$Status; // 상태
   view_id: number | null; // 조회 ID // int, nullable
   create_date: Date; // 등록일자

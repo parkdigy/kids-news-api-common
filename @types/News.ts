@@ -8,6 +8,11 @@ export class NewsSubjectInfo {
   date!: string;
 }
 
+export class NewsSentenceQuizInfo {
+  sentence!: string;
+  texts!: string[];
+}
+
 export class NewsQuizInfo {
   question!: string;
   options!: string[];
@@ -63,4 +68,5 @@ export class NewsLevelInfo {
   key_word!: NewsKeyWordInfo;
   discussions!: NewsDiscussionInfo[];
   quizzes!: NewsQuizInfo[];
+  sentence_quizzes!: NewsSentenceQuizInfo[];
 }
