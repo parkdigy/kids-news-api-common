@@ -57,10 +57,17 @@ export class NewsParagraphInfo {
   tts_url!: string | null;
 }
 
+export class NewsTtsInfo {
+  start_time!: number;
+  end_time!: number;
+  text!: string;
+}
+
 export class NewsLevelInfo {
   level!: TNewsLevel$Level;
   img_url!: string | null;
   tts_url!: string | null;
+  tts_info!: NewsTtsInfo[] | null;
   title!: string;
   description!: string;
   paragraphs!: NewsParagraphInfo[];
