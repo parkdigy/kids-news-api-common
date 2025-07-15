@@ -65,6 +65,11 @@ export const NewsTtsTimestampType = {
 } as const;
 export type NewsTtsTimestampType = ValueOf<typeof NewsTtsTimestampType>;
 
+export class NewsTtsTimestampLineInfo {
+  type!: NewsTtsTimestampType;
+  text!: string;
+}
+
 export class NewsTtsTimestampInfo {
   type!: NewsTtsTimestampType;
   start_time!: number;
