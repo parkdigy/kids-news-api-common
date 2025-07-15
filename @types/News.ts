@@ -57,7 +57,16 @@ export class NewsParagraphInfo {
   tts_url!: string | null;
 }
 
-export class NewsTtsInfo {
+export const NewsTtsTimestampType = {
+  LevelTitle: 'lt',
+  LevelDescription: 'ld',
+  ParagraphTitle: 'pt',
+  ParagraphContent: 'pc',
+} as const;
+export type NewsTtsTimestampType = ValueOf<typeof NewsTtsTimestampType>;
+
+export class NewsTtsTimestampInfo {
+  type!: NewsTtsTimestampType;
   start_time!: number;
   end_time!: number;
   text!: string;
@@ -67,7 +76,7 @@ export class NewsLevelInfo {
   level!: TNewsLevel$Level;
   img_url!: string | null;
   tts_url!: string | null;
-  tts_info!: NewsTtsInfo[] | null;
+  tts_info!: NewsTtsTimestampInfo[] | null;
   title!: string;
   description!: string;
   paragraphs!: NewsParagraphInfo[];
