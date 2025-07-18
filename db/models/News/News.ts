@@ -29,6 +29,7 @@ export interface TNews {
   ai_subject_id: number; // AI 부모 ID // int
   ai_subject_sub_id: number; // AI 부모 서브 ID // int
   ai_img_default_styles: string | null; // AI 이미지 기본 스타일 // text, nullable
+  ai_except_subject_word: string; // AI 주제 생성 시 제외 문구 // varchar(20)
   create_date: Date; // 등록일자 // datetime
   update_date: Date; // 수정일자 // datetime
 }
