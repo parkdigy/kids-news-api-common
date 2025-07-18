@@ -39,7 +39,7 @@ export class NewsWordInfo {
   meaning!: string;
   meaning_tts_url?: string;
   texts!: string[];
-  crossword!: boolean;
+  crossword?: boolean;
 }
 
 export class NewsKeyWordInfo {
@@ -47,7 +47,7 @@ export class NewsKeyWordInfo {
   meaning!: string;
   sentence!: string;
   tts_url?: string;
-  crossword!: boolean;
+  crossword?: boolean;
 }
 
 export class NewsParagraphInfo {
