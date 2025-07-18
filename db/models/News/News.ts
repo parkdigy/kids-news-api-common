@@ -22,6 +22,7 @@ export interface TNews {
   img_url: string | null; // 이미지 URL // max:1024, nullable
   img_title: string | null; // 이미지 제목 // varchar(100), nullable
   img_source: string | null; // 이미지 출처 // varchar(100), nullable
+  img_offset_y: number; // 이미지 Y축 오프셋 // int, default:0
   news_category_id: TNewsCategory['id']; // 뉴스 카테고리 ID // int, FK
   news_date: Date; // 뉴스 날짜 // date
   status: TNews$Status; // 상태
@@ -37,7 +38,7 @@ export interface TNews {
 export type TNews$InsertData = TableInsertData<
   TNews,
   'id',
-  'img_url' | 'img_title' | 'img_source' | 'ai_img_default_styles'
+  'img_url' | 'img_title' | 'img_source' | 'img_offset_y' | 'ai_img_default_styles'
 >;
 export type TNews$UpdateData = TableUpdateData<
   TNews,
