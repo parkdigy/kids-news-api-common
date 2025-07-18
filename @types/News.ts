@@ -17,12 +17,12 @@ export class NewsQuizInfo {
   question!: string;
   options!: string[];
   answer!: string;
-  tts_url!: string | null;
+  tts_url?: string;
 }
 
 export class NewsDiscussionInfo {
   question!: string;
-  tts_url!: string | null;
+  tts_url?: string;
   student!: {
     thinking: string[];
   };
@@ -35,9 +35,9 @@ export class NewsDiscussionInfo {
 
 export class NewsWordInfo {
   word!: string;
-  word_tts_url!: string | null;
+  word_tts_url?: string;
   meaning!: string;
-  meaning_tts_url!: string | null;
+  meaning_tts_url?: string;
   texts!: string[];
   crossword!: boolean;
 }
@@ -46,15 +46,15 @@ export class NewsKeyWordInfo {
   word!: string;
   meaning!: string;
   sentence!: string;
-  tts_url!: string | null;
+  tts_url?: string;
   crossword!: boolean;
 }
 
 export class NewsParagraphInfo {
   title!: string;
   content!: string;
-  img_url!: string | null;
-  tts_url!: string | null;
+  img_url?: string;
+  tts_url?: string;
 }
 
 export const NewsTtsTimestampType = {
@@ -75,13 +75,14 @@ export class NewsTtsTimestampInfo {
   start_time!: number;
   end_time!: number;
   text!: string;
+  custom?: boolean;
 }
 
 export class NewsLevelInfo {
   level!: TNewsLevel$Level;
-  img_url!: string | null;
-  tts_url!: string | null;
-  tts_info!: NewsTtsTimestampInfo[] | null;
+  img_url?: string;
+  tts_url?: string;
+  tts_info?: NewsTtsTimestampInfo[];
   title!: string;
   description!: string;
   paragraphs!: NewsParagraphInfo[];
