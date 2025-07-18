@@ -20,6 +20,8 @@ export interface TNews {
   news_key: string; // 뉴스 KEY // max:32 // UQ
   title: string; // 제목 // max:100
   img_url: string | null; // 이미지 URL // max:1024, nullable
+  img_title: string | null; // 이미지 제목 // varchar(100), nullable
+  img_source: string | null; // 이미지 출처 // varchar(100), nullable
   news_category_id: TNewsCategory['id']; // 뉴스 카테고리 ID // int, FK
   news_date: Date; // 뉴스 날짜 // date
   status: TNews$Status; // 상태
@@ -31,7 +33,11 @@ export interface TNews {
   update_date: Date; // 수정일자 // datetime
 }
 
-export type TNews$InsertData = TableInsertData<TNews, 'id', 'img_url' | 'ai_img_default_styles'>;
+export type TNews$InsertData = TableInsertData<
+  TNews,
+  'id',
+  'img_url' | 'img_title' | 'img_source' | 'ai_img_default_styles'
+>;
 export type TNews$UpdateData = TableUpdateData<
   TNews,
   'id' | 'news_key' | 'ai_type' | 'ai_subject_id' | 'ai_subject_sub_id' | 'create_date',
