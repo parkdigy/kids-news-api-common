@@ -26,6 +26,7 @@ export interface TNewsLevel {
   tts_info: string | null; // TTS 정보 // text, nullable
   title: string; // 제목 // varchar(100)
   description: string; // 소개 내용 // text
+  sentences: string; // 문장 // text
   paragraphs: string; // 문단 // text
   words: string; // 단어 // text
   key_word: string; // 핵심 단어 // text
