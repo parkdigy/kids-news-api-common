@@ -23,9 +23,8 @@ export interface TNewsLevel {
   news_date: Date; // 뉴스 날짜 // date
   news_category_id: TNewsCategory['id']; // 뉴스 카테고리 ID // int, FK
   tts_url: string | null; // TTS URL // varchar(1024), nullable
-  tts_info: string | null; // TTS 정보 // text, nullable
   title: string; // 제목 // varchar(100)
-  description: string; // 소개 내용 // text
+  content: string; // 소개 내용 // text
   sentences: string; // 문장 // text
   paragraphs: string; // 문단 // text
   words: string; // 단어 // text
@@ -39,7 +38,7 @@ export interface TNewsLevel {
   update_date: Date; // 수정일자
 }
 
-export type TNewsLevel$InsertData = TableInsertData<TNewsLevel, 'id', 'words' | 'tts_url' | 'tts_info' | 'view_id'>;
+export type TNewsLevel$InsertData = TableInsertData<TNewsLevel, 'id', 'words' | 'tts_url' | 'view_id'>;
 export type TNewsLevel$UpdateData = TableUpdateData<TNewsLevel, 'id' | 'news_id' | 'create_date', 'update_date'>;
 
 export default TNewsLevel;
