@@ -11,14 +11,15 @@ export interface TIdiomLevel {
   idiom_id: TIdiom['id']; // 사자성어 ID // FK
   level: IdiomLevel;
   meaning: string; // 의미 // text
+  meaning_tts_url: string | null; // 의미 TTS URL // max:1024, nullable
   etymology: string; // 어원 // text
+  etymology_tts_url: string | null; // 어원 TTS URL // max:1024, nullable
   examples: string; // 예문 // text
-  tts_url: string | null; // TTS URL // max:1024, nullable
   create_date: Date; // 등록일자
   update_date: Date; // 수정일자
 }
 
-export type TIdiomLevel$InsertData = TableInsertData<TIdiomLevel, 'id', 'tts_url'>;
+export type TIdiomLevel$InsertData = TableInsertData<TIdiomLevel, 'id', 'meaning_tts_url' | 'etymology_tts_url'>;
 export type TIdiomLevel$UpdateData = TableUpdateData<
   TIdiomLevel,
   'id' | 'idiom_level_key' | 'idiom_id' | 'level' | 'create_date',
