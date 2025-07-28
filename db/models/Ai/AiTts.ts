@@ -1,7 +1,7 @@
 import { Knex } from 'knex';
 import { TableInsertData, TableUpdateData } from '@db_models_types';
 
-export interface TNewsTts {
+export interface TAiTts {
   /** Primary Key */
   text: string; // 텍스트 // max:300
   /** Others */
@@ -10,13 +10,13 @@ export interface TNewsTts {
   update_date: Date; // 수정일자
 }
 
-export type TNewsTts$InsertData = TableInsertData<TNewsTts>;
-export type TNewsTts$UpdateData = TableUpdateData<TNewsTts, 'text' | 'create_date', 'update_date'>;
+export type TAiTts$InsertData = TableInsertData<TAiTts>;
+export type TAiTts$UpdateData = TableUpdateData<TAiTts, 'text' | 'create_date', 'update_date'>;
 
-export default TNewsTts;
+export default TAiTts;
 
 declare module 'knex/types/tables' {
   interface Tables {
-    news_tts: Knex.CompositeTableType<TNewsTts, TNewsTts$InsertData, TNewsTts$UpdateData>;
+    ai_tts: Knex.CompositeTableType<TAiTts, TAiTts$InsertData, TAiTts$UpdateData>;
   }
 }

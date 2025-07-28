@@ -1,13 +1,13 @@
 import { MySqlQuery } from '@db_query_common';
 import { Knex } from 'knex';
 
-const tableName: Knex.TableNames = 'news_tts';
+const tableName: Knex.TableNames = 'ai_tts';
 type tableName = typeof tableName;
 
-export default class NewsTts extends MySqlQuery<tableName> {
+export default class AiTts extends MySqlQuery<tableName> {
   constructor() {
     super(tableName);
   }
 }
 
-export { NewsTts };
+export { AiTts };
