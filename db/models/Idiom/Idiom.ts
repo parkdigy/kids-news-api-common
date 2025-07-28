@@ -10,6 +10,8 @@ export interface TIdiom {
   ch_title: string; // 한문 사자성어 // max:10
   ch_chars: string; // 한문 글자 정보 // text
   meaning: string; // 의미 // text
+  etymology: string; // 어원 // text
+  examples: string; // 예문 // text
   img_url: string | null; // 이미지 URL // max:1024, nullable
   img_title: string | null; // 이미지 제목 // varchar(100), nullable
   img_source: string | null; // 이미지 출처 // varchar(100), nullable
