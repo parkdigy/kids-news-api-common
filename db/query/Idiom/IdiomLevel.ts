@@ -1,21 +1,21 @@
 import { MySqlQuery } from '@db_query_common';
 import { Knex } from 'knex';
 
-const tableName: Knex.TableNames = 'idiom';
+const tableName: Knex.TableNames = 'idiom_level';
 type tableName = typeof tableName;
 
-export default class Idiom extends MySqlQuery<tableName> {
+export default class IdiomLevel extends MySqlQuery<tableName> {
   constructor() {
     super(tableName);
   }
 
   async newKey(req: MyRequest) {
     let key = util.uuid(true);
-    while (await this.exists(req, { idiom_key: key })) {
+    while (await this.exists(req, { idiom_level_key: key })) {
       key = util.uuid(true);
     }
     return key;
   }
 }
 
-export { Idiom };
+export { IdiomLevel };

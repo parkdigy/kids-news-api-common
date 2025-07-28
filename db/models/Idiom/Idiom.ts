@@ -5,13 +5,11 @@ export interface TIdiom {
   /** Primary Key */
   id: number; // PK, AI, int
   /** Others */
+  idiom_key: string; // 사자성어 KEY // UQ, max:32
   title: string; // 사자성어: 한글(한문) // max:10
-  kr_title: string; // 한글 사자성어 // max:10
-  ch_title: string; // 한문 사자성어 // max:10
+  kr_title: string; // 한글 사자성어 // UQ, max:10
+  ch_title: string; // 한문 사자성어 // UQ, max:10
   ch_chars: string; // 한문 글자 정보 // text
-  meaning: string; // 의미 // text
-  etymology: string; // 어원 // text
-  examples: string; // 예문 // text
   img_url: string | null; // 이미지 URL // max:1024, nullable
   img_title: string | null; // 이미지 제목 // varchar(100), nullable
   img_source: string | null; // 이미지 출처 // varchar(100), nullable
@@ -21,7 +19,7 @@ export interface TIdiom {
 }
 
 export type TIdiom$InsertData = TableInsertData<TIdiom, 'id', 'img_url' | 'img_title' | 'img_source' | 'tts_url'>;
-export type TIdiom$UpdateData = TableUpdateData<TIdiom, 'id' | 'create_date', 'update_date'>;
+export type TIdiom$UpdateData = TableUpdateData<TIdiom, 'id' | 'idiom_key' | 'create_date', 'update_date'>;
 
 export default TIdiom;
 
