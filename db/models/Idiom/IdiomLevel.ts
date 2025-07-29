@@ -1,7 +1,12 @@
 import { Knex } from 'knex';
 import { TableInsertData, TableUpdateData } from '@db_models_types';
-import { IdiomLevel } from '@kc_types';
 import TIdiom from './Idiom';
+import { makeEnum } from '@db_models_util';
+
+/** 상태 */
+const Level = { 1: '레벨 1', 2: '레벨 2', 3: '레벨 3' };
+export type TIdiomLevel$Level = keyof typeof Level;
+export const TIdiomLevel$Level = makeEnum('level', Level, { 1: 'Level1', 2: 'Level2', 3: 'Level3' });
 
 export interface TIdiomLevel {
   /** Primary Key */
@@ -9,17 +14,18 @@ export interface TIdiomLevel {
   /** Others */
   idiom_level_key: string; // 사자성어 레벨 KEY // UQ, max:32
   idiom_id: TIdiom['id']; // 사자성어 ID // FK
-  level: IdiomLevel;
+  level: TIdiomLevel$Level;
+  tts_url: string; // TTS URL // max:1024
   meaning: string; // 의미 // text
-  meaning_tts_url: string | null; // 의미 TTS URL // max:1024, nullable
+  meaning_tts: string | null; // 의미 TTS URL // max:30, nullable
   etymology: string; // 어원 // text
-  etymology_tts_url: string | null; // 어원 TTS URL // max:1024, nullable
+  etymology_tts: string | null; // 어원 TTS URL // max:30, nullable
   examples: string; // 예문 // text
   create_date: Date; // 등록일자
   update_date: Date; // 수정일자
 }
 
-export type TIdiomLevel$InsertData = TableInsertData<TIdiomLevel, 'id', 'meaning_tts_url' | 'etymology_tts_url'>;
+export type TIdiomLevel$InsertData = TableInsertData<TIdiomLevel, 'id', 'tts_url' | 'meaning_tts' | 'etymology_tts'>;
 export type TIdiomLevel$UpdateData = TableUpdateData<
   TIdiomLevel,
   'id' | 'idiom_level_key' | 'idiom_id' | 'level' | 'create_date',

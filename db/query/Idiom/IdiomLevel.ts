@@ -1,10 +1,13 @@
 import { MySqlQuery } from '@db_query_common';
 import { Knex } from 'knex';
+import { TIdiomLevel$Level } from '@kac_db_models';
 
 const tableName: Knex.TableNames = 'idiom_level';
 type tableName = typeof tableName;
 
 export default class IdiomLevel extends MySqlQuery<tableName> {
+  Level = TIdiomLevel$Level;
+
   constructor() {
     super(tableName);
   }
