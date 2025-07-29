@@ -6,7 +6,7 @@ export const getTtsText = (text: string) => {
     })
     .join('\n')
     .replace(/\(.*?\)/g, '')
-    .replace(/(['"`])/gi, '')
+    .replace(/(['"`『』「」])/gi, '')
     .trim();
 };
 
