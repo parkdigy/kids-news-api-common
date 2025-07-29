@@ -15,7 +15,7 @@ export interface TIdiomLevel {
   idiom_level_key: string; // 사자성어 레벨 KEY // UQ, max:32
   idiom_id: TIdiom['id']; // 사자성어 ID // FK
   level: TIdiomLevel$Level;
-  tts_url: string; // TTS URL // max:1024
+  tts_url: string | null; // TTS URL // max:1024, nullable
   meaning: string; // 의미 // text
   meaning_tts: string | null; // 의미 TTS URL // max:30, nullable
   etymology: string; // 어원 // text
