@@ -17,9 +17,9 @@ export interface TIdiomLevel {
   level: TIdiomLevel$Level;
   tts_url: string | null; // TTS URL // max:1024, nullable
   meaning: string; // 의미 // text
-  meaning_tts: string | null; // 의미 TTS URL // max:40, nullable
+  meaning_tts: string | null; // 의미 TTS URL // max:50, nullable
   etymology: string; // 어원 // text
-  etymology_tts: string | null; // 어원 TTS URL // max:40, nullable
+  etymology_tts: string | null; // 어원 TTS URL // max:50, nullable
   examples: string; // 예문 // text
   create_date: Date; // 등록일자
   update_date: Date; // 수정일자
