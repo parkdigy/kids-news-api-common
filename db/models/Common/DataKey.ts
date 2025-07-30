@@ -20,9 +20,15 @@ export const TDataKey$Id = {
   NewsTodayLevel1: 'news_today_1',
   NewsTodayLevel2: 'news_today_2',
   NewsTodayLevel3: 'news_today_3',
+  IdiomLevel1: 'idiom1',
+  IdiomLevel2: 'idiom2',
+  IdiomLevel3: 'idiom3',
   IdiomTodayLevel1: 'idiom_today_1',
   IdiomTodayLevel2: 'idiom_today_2',
   IdiomTodayLevel3: 'idiom_today_3',
+  TodayInfo1: 'today_info_1',
+  TodayInfo2: 'today_info_2',
+  TodayInfo3: 'today_info_3',
 } as const;
 export type TDataKey$Id = ValueOf<typeof TDataKey$Id>;
 
