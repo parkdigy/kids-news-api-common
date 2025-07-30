@@ -35,17 +35,13 @@ export interface TUser {
   reg_os: TUser$RegOs; // 가입 OS
   reg_type: TUser$RegType; // 가입 구분
   resign_date: Date | null; // 탈퇴 일자
-  news_level: TNewsLevel$Level; // 뉴스 레벨 // tinyint, default:1
+  level: TNewsLevel$Level; // 뉴스 레벨 // tinyint, default:1
   status: TUser$Status; // 상태
   create_date: Date; // 등록일자
   update_date: Date; // 수정일자
 }
 
-export type TUser$InsertData = TableInsertData<
-  TUser,
-  'id',
-  'email' | 'is_push_notification' | 'resign_date' | 'news_level'
->;
+export type TUser$InsertData = TableInsertData<TUser, 'id', 'email' | 'is_push_notification' | 'resign_date' | 'level'>;
 export type TUser$UpdateData = TableUpdateData<TUser, 'id' | 'create_date', 'update_date'>;
 
 export default TUser;
