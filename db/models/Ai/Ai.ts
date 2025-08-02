@@ -9,7 +9,7 @@ export const TAi$Engine = makeEnum('engine', Engine, { GG: 'GoogleGemini', GC: '
 
 /** 구분 - !!!!!!!!!! 수정 시 반드시 DB도 수정해야 함 !!!!!!!!!! */
 const Type = {
-  SUBJECT: '주제',
+  SUBJECT: '뉴스 주제',
   CONTENT: '뉴스 기사',
   IMG: '이미지',
   WORD: '단어',
