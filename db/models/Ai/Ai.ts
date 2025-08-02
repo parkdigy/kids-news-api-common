@@ -8,7 +8,15 @@ export type TAi$Engine = keyof typeof Engine;
 export const TAi$Engine = makeEnum('engine', Engine, { GG: 'GoogleGemini', GC: 'GoogleCloud', OC: 'OpenAiChatGpt' });
 
 /** 구분 - !!!!!!!!!! 수정 시 반드시 DB도 수정해야 함 !!!!!!!!!! */
-const Type = { SUBJECT: '주제', CONTENT: '뉴스 기사', IMG: '이미지', WORD: '단어', TTS: 'TTS', IDIOM: '사자성어' };
+const Type = {
+  SUBJECT: '주제',
+  CONTENT: '뉴스 기사',
+  IMG: '이미지',
+  WORD: '단어',
+  TTS: 'TTS',
+  IDIOM: '사자성어',
+  IDIOM_EX: '사자성어 예문',
+};
 export type TAi$Type = keyof typeof Type;
 export const TAi$Type = makeEnum('type', Type);
 
