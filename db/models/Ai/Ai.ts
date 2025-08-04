@@ -16,6 +16,7 @@ const Type = {
   TTS: 'TTS',
   IDIOM: '사자성어',
   IDIOM_EX: '사자성어 예문',
+  SAYING: '속담',
 };
 export type TAi$Type = keyof typeof Type;
 export const TAi$Type = makeEnum('type', Type);
