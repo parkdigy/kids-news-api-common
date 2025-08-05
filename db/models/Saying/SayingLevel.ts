@@ -16,12 +16,13 @@ export interface TSayingLevel {
   saying_id: TSaying['id']; // 속담 ID // FK
   level: TSayingLevel$Level;
   tts_url: string | null; // TTS URL // max:1024, nullable
+  meaning_tts_url: string | null; // 의미 TTS URL // max:1024, nullable
   sentences: string; // 문장 // text
   create_date: Date; // 등록일자
   update_date: Date; // 수정일자
 }
 
-export type TSayingLevel$InsertData = TableInsertData<TSayingLevel, 'id'>;
+export type TSayingLevel$InsertData = TableInsertData<TSayingLevel, 'id', 'tts_url' | 'meaning_tts_url'>;
 export type TSayingLevel$UpdateData = TableUpdateData<
   TSayingLevel,
   'id' | 'saying_level_key' | 'saying_id' | 'level' | 'create_date',
