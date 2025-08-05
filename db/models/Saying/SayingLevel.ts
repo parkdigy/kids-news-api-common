@@ -18,6 +18,7 @@ export interface TSayingLevel {
   tts_url: string | null; // TTS URL // max:1024, nullable
   meaning_tts_url: string | null; // 의미 TTS URL // max:1024, nullable
   sentences: string; // 문장 // text
+  hidden_texts: string; // 숨김 텍스트 // text
   create_date: Date; // 등록일자
   update_date: Date; // 수정일자
 }
