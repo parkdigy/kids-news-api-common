@@ -14,6 +14,7 @@ export interface TSaying {
   saying_key: string; // 속담 KEY // UQ, max:32
   title: string; // 속담 // max:50
   img_url: string | null; // 이미지 URL // max:1024, nullable
+  low_img_url: string | null; // 낮은 해상도 이미지 URL // max:1024, nullable
   thumb_img_url: string | null; // 썸네일 이미지 URL // max:1024, nullable
   img_title: string | null; // 이미지 제목 // varchar(100), nullable
   img_source: string | null; // 이미지 출처 // varchar(100), nullable
@@ -26,7 +27,7 @@ export interface TSaying {
 export type TSaying$InsertData = TableInsertData<
   TSaying,
   'id',
-  'img_url' | 'thumb_img_url' | 'img_title' | 'img_source' | 'tts_url'
+  'img_url' | 'low_img_url' | 'thumb_img_url' | 'img_title' | 'img_source' | 'tts_url'
 >;
 export type TSaying$UpdateData = TableUpdateData<TSaying, 'id' | 'saying_key' | 'create_date', 'update_date'>;
 

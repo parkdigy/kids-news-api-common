@@ -17,6 +17,7 @@ export interface TIdiom {
   ch_title: string; // 한문 사자성어 // UQ, max:10
   ch_chars: string; // 한문 글자 정보 // text
   img_url: string | null; // 이미지 URL // max:1024, nullable
+  low_img_url: string | null; // 낮은 해상도 이미지 URL // max:1024, nullable
   thumb_img_url: string | null; // 썸네일 이미지 URL // max:1024, nullable
   img_title: string | null; // 이미지 제목 // varchar(100), nullable
   img_source: string | null; // 이미지 출처 // varchar(100), nullable
@@ -29,7 +30,7 @@ export interface TIdiom {
 export type TIdiom$InsertData = TableInsertData<
   TIdiom,
   'id',
-  'img_url' | 'thumb_img_url' | 'img_title' | 'img_source' | 'tts_url'
+  'img_url' | 'low_img_url' | 'thumb_img_url' | 'img_title' | 'img_source' | 'tts_url'
 >;
 export type TIdiom$UpdateData = TableUpdateData<TIdiom, 'id' | 'idiom_key' | 'create_date', 'update_date'>;
 
