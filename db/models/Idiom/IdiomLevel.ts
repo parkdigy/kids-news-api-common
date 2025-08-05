@@ -16,12 +16,13 @@ export interface TIdiomLevel {
   idiom_id: TIdiom['id']; // 사자성어 ID // FK
   level: TIdiomLevel$Level;
   tts_url: string | null; // TTS URL // max:1024, nullable
+  meaning_tts_url: string | null; // 의미 TTS URL // max:1024, nullable
   sentences: string; // 문장 // text
   create_date: Date; // 등록일자
   update_date: Date; // 수정일자
 }
 
-export type TIdiomLevel$InsertData = TableInsertData<TIdiomLevel, 'id'>;
+export type TIdiomLevel$InsertData = TableInsertData<TIdiomLevel, 'id', 'tts_url' | 'meaning_tts_url'>;
 export type TIdiomLevel$UpdateData = TableUpdateData<
   TIdiomLevel,
   'id' | 'idiom_level_key' | 'idiom_id' | 'level' | 'create_date',
