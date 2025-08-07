@@ -1,12 +1,18 @@
+import textSplitLine from './textSplitLine';
+
 export const getTtsText = (text: string) => {
-  return text
-    .split('\n')
-    .map((line) => {
-      return empty(line.trim()) || contains(['!', '?', '.'], line.substring(line.length - 1)) ? line : `${line}!`;
-    })
+  return textSplitLine(text)
     .join('\n')
+    .replaceAll('\n\n', '\n')
+    .replaceAll('\n\n', '\n')
     .replace(/\(.*?\)/g, '')
-    .replace(/(['"`『』「」])/gi, '')
+    .replace(/([『』「」])/gi, '')
+    .replaceAll(',', ':')
+    .replaceAll(` '`, `: '`)
+    .replaceAll(' ‘', ': ‘')
+    .replaceAll(' "', ': "')
+    .replaceAll(' “', ': “')
+    .replaceAll('그런데 어느 날', '그런데어느날')
     .trim();
 };
 
