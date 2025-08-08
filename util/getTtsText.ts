@@ -2,9 +2,14 @@ import textSplitLine from './textSplitLine';
 
 export const getTtsText = (text: string) => {
   return textSplitLine(text)
-    .join('\n')
-    .replaceAll('\n\n', '\n')
-    .replaceAll('\n\n', '\n')
+    .map((line) => {
+      if (!contains(['.', '!', '?'], line.substring(line.length - 1))) {
+        return `${line.trim()}.`;
+      } else {
+        return line.trim();
+      }
+    })
+    .join(' ')
     .replace(/\(.*?\)/g, '')
     .replace(/([『』「」])/gi, '')
     .replaceAll(',', ':')
