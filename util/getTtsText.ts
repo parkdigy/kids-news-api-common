@@ -9,7 +9,7 @@ export const getTtsText = (text: string) => {
         return line.trim();
       }
     })
-    .join(' ')
+    .join(': ')
     .replace(/\(.*?\)/g, '')
     .replace(/([『』「」])/gi, '')
     .replaceAll(',', ':')
