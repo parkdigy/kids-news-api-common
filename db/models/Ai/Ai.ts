@@ -15,6 +15,7 @@ const Type = {
   WORD: '단어',
   TTS: 'TTS',
   IDIOM: '사자성어',
+  IDIOM_CH: '사자성어 한자',
   IDIOM_EX: '사자성어 예문',
   SAYING: '속담',
 };
