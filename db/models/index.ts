@@ -7,3 +7,4 @@ export * from './News';
 export * from './Ai';
 export * from './Idiom';
 export * from './Saying';
+export * from './ChChar';
