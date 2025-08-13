@@ -1,6 +1,6 @@
 import { MySqlQuery } from '@db_query_common';
 import { Knex } from 'knex';
-import { TDataKey$Id, TUserDataKey, TUserDataKey$Id } from '@kac_db_models';
+import { TUserDataKey, TUserDataKey$Id } from '@kac_db_models';
 
 const tableName: Knex.TableNames = 'user_data_key';
 type tableName = typeof tableName;
