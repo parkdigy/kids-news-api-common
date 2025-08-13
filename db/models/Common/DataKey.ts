@@ -48,7 +48,7 @@ export interface TDataKey {
 }
 
 export type TDataKey$InsertData = TableInsertData<TDataKey>;
-export type TDataKey$UpdateData = TableUpdateData<TDataKey, 'id', 'update_date'>;
+export type TDataKey$UpdateData = TableUpdateData<TDataKey, 'id' | 'create_date', 'update_date'>;
 
 export default TDataKey;
 
