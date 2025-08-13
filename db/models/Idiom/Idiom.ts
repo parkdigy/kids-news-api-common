@@ -22,6 +22,7 @@ export interface TIdiom {
   img_title: string | null; // 이미지 제목 // varchar(100), nullable
   img_source: string | null; // 이미지 출처 // varchar(100), nullable
   tts_url: string | null; // TTS URL // max:1024, nullable
+  is_free: boolean; // 무료 여부 // default: false
   status: TIdiom$Status;
   create_date: Date; // 등록일자
   update_date: Date; // 수정일자
@@ -30,7 +31,7 @@ export interface TIdiom {
 export type TIdiom$InsertData = TableInsertData<
   TIdiom,
   'id',
-  'img_url' | 'low_img_url' | 'thumb_img_url' | 'img_title' | 'img_source' | 'tts_url'
+  'img_url' | 'low_img_url' | 'thumb_img_url' | 'img_title' | 'img_source' | 'tts_url' | 'is_free'
 >;
 export type TIdiom$UpdateData = TableUpdateData<TIdiom, 'id' | 'idiom_key' | 'create_date', 'update_date'>;
 
