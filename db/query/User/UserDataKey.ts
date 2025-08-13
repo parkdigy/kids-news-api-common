@@ -1,6 +1,6 @@
 import { MySqlQuery } from '@db_query_common';
 import { Knex } from 'knex';
-import { TUserDataKey, TUserDataKey$Id } from '@kac_db_models';
+import { TUser, TUserDataKey, TUserDataKey$Id } from '@kac_db_models';
 
 const tableName: Knex.TableNames = 'user_data_key';
 type tableName = typeof tableName;
@@ -15,13 +15,50 @@ export default class UserDataKey extends MySqlQuery<tableName> {
   /********************************************************************************************************************
    * 데이터 KEY 조회
    * ******************************************************************************************************************/
-  async getUserDataKey(req: MyRequest, userId: TUserDataKey['user_id'], dataId: TUserDataKey['data_id']) {
+  async getDataKey(
+    req: MyRequest,
+    userId: TUserDataKey['user_id'],
+    level: TUser['level'],
+    dataId: TUserDataKey['data_id']
+  ) {
     const info = await this.find(req, { user_id: userId, data_id: dataId }).select('data_key');
     if (info) {
-      return info.data_key;
+      return info.data_key * 10 + level;
     } else {
-      return 0;
+      return level;
     }
+  }
+
+  /********************************************************************************************************************
+   * 데이터 KEY 목록 조회
+   * ******************************************************************************************************************/
+  async getDataKeyList(
+    req: MyRequest,
+    userId: TUserDataKey['user_id'],
+    level: TUser['level'],
+    dataIds?: TUserDataKey['data_id'][]
+  ) {
+    const finalDataIds = dataIds || this.Id.getList();
+
+    const list = await this.getBuilder(req)
+      .select('data_id', 'data_key')
+      .where('user_id', userId)
+      .whereIn('data_id', finalDataIds);
+
+    const map = list.reduce((acc, item) => {
+      acc[item.data_id] = item.data_key;
+      return acc;
+    }, {} as Dict<number>);
+
+    for (const dataId of finalDataIds) {
+      if (map[dataId] !== undefined) {
+        map[dataId] = map[dataId] * 10 + level;
+      } else {
+        map[dataId] = level;
+      }
+    }
+
+    return map;
   }
 
   /********************************************************************************************************************

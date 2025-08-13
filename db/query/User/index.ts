@@ -4,3 +4,4 @@ export * from './UserResign';
 export * from './UserDataKey';
 export * from './UserIdiom';
 export * from './UserSaying';
+export * from './UserToday';

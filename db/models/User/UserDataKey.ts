@@ -3,10 +3,16 @@ import { TableInsertData, TableUpdateData } from '@db_models_types';
 import TUser from './User';
 
 /** ID */
-export const TUserDataKey$Id = {
-  All: 'all',
+const TUserDataKey$IdBase = {
+  Today: 't',
 } as const;
-export type TUserDataKey$Id = ValueOf<typeof TUserDataKey$Id>;
+export type TUserDataKey$Id = ValueOf<typeof TUserDataKey$IdBase>;
+export const TUserDataKey$Id = {
+  ...TUserDataKey$IdBase,
+  getList(): TUserDataKey$Id[] {
+    return [TUserDataKey$IdBase.Today];
+  },
+};
 
 export interface TUserDataKey {
   /** Primary Key */
