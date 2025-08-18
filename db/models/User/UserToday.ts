@@ -11,9 +11,9 @@ export interface TUserToday {
   day: number; // 날짜 (YYYYMMDD)
   /** Others */
   news_id: TNews['id']; // 뉴스 ID
-  idiom_id: TIdiom['id'] | null; // 사자성어 ID // nullable
+  idiom_id: TIdiom['id']; // 사자성어 ID // nullable
   is_idiom_get: boolean; // 사자성어 획득 여부 // default=false
-  saying_id: TSaying['id'] | null; // 속담 ID // nullable
+  saying_id: TSaying['id']; // 속담 ID // nullable
   is_saying_get: boolean; // 속담 획득 여부 // default=false
   create_date: Date; // 등록일자
   update_date: Date; // 수정일자

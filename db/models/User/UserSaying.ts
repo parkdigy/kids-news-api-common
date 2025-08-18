@@ -5,6 +5,8 @@ import { TSaying } from '../Saying';
 
 export interface TUserSaying {
   /** Primary Key */
+  id: number; // PK, AI // bigint
+  /** Others */
   user_id: TUser['id']; // 회원 ID
   saying_id: TSaying['id']; // 사자성어 ID
   /** Others */
@@ -12,10 +14,10 @@ export interface TUserSaying {
   update_date: Date; // 수정일자
 }
 
-export type TUserSaying$InsertData = TableInsertData<TUserSaying>;
+export type TUserSaying$InsertData = TableInsertData<TUserSaying, 'id'>;
 export type TUserSaying$UpdateData = TableUpdateData<
   TUserSaying,
-  'user_id' | 'saying_id' | 'create_date',
+  'id' | 'user_id' | 'saying_id' | 'create_date',
   'update_date'
 >;
 
