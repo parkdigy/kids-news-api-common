@@ -23,9 +23,9 @@ export default class UserDataKey extends MySqlQuery<tableName> {
   ) {
     const info = await this.find(req, { user_id: userId, data_id: dataId }).select('data_key');
     if (info) {
-      return info.data_key * 10 + level;
+      return `${userId}_${info.data_key}_${level}`;
     } else {
-      return level;
+      return `${userId}_${level}`;
     }
   }
 
@@ -46,15 +46,15 @@ export default class UserDataKey extends MySqlQuery<tableName> {
       .whereIn('data_id', finalDataIds);
 
     const map = list.reduce((acc, item) => {
-      acc[item.data_id] = item.data_key;
+      acc[item.data_id] = item.data_key.toString();
       return acc;
-    }, {} as Dict<number>);
+    }, {} as Dict<string>);
 
     for (const dataId of finalDataIds) {
       if (map[dataId] !== undefined) {
-        map[dataId] = map[dataId] * 10 + level;
+        map[dataId] = `${userId}_${map[dataId]}_${level}`;
       } else {
-        map[dataId] = level;
+        map[dataId] = `${userId}_${level}`;
       }
     }
 

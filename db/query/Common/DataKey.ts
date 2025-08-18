@@ -22,9 +22,9 @@ export default class DataKey extends MySqlQuery<tableName> {
   async getDataKey(req: MyRequest, id: TDataKey$Id) {
     const info = await this.find(req, { id }).select('data_key');
     if (info) {
-      return info.data_key;
+      return info.data_key.toString();
     } else {
-      return 0;
+      return '0';
     }
   }
 

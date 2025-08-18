@@ -8,3 +8,7 @@ export * from './Ai';
 export * from './Idiom';
 export * from './Saying';
 export * from './ChChar';
+export * from './Device';
+export * from './AppStore';
+export * from './GooglePlay';
+export * from './Qna';
