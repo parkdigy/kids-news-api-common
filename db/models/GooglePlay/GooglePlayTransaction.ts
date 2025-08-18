@@ -25,7 +25,7 @@ export type TGooglePlayTransaction$Status = keyof typeof Status;
 export const TGooglePlayTransaction$Status = makeEnum('status', Status);
 
 /** 구독 상태 */
-const SubscriptionStatus = {
+export const SubscriptionStatus = {
   Recovered: 1, // 정기 결제가 계정 보류에서 복구되었습니다.
   Renewed: 2, // 활성 정기 결제가 갱신되었습니다.
   Canceled: 3, // 정기 결제가 자발적으로 또는 비자발적으로 취소되었습니다. 자발적 취소의 경우 사용자가 취소할 때 전송됩니다.
