@@ -4,7 +4,7 @@ import { makeEnum } from '@db_models_util';
 import TNewsCategory from './NewsCategory';
 
 /** 상태 */
-const Status = { WRITE: '작성중', WAIT: '노출대기중', ON: '노출중', OFF: '숨김' };
+const Status = { WRITE: '작성중', WAIT: '발행대기중', ON: '발행중', OFF: '숨김' };
 export type TNews$Status = keyof typeof Status;
 export const TNews$Status = makeEnum('status', Status);
 
@@ -26,7 +26,7 @@ export interface TNews {
   img_offset_y: number; // 이미지 Y축 오프셋 // int, default:0
   news_category_id: TNewsCategory['id']; // 뉴스 카테고리 ID // int, FK
   news_date: Date; // 뉴스 날짜 // date
-  data_key: number; // 데이터 KEY // int, default:0
+  data_key: number; // 데이터 KEY // int, default:1
   status: TNews$Status; // 상태
   ai_type: TNews$AiType; // AI 구분
   ai_subject_id: number; // AI 부모 ID // int
