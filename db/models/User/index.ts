@@ -3,6 +3,7 @@ export * from './UserLogin';
 export * from './UserLoginSns';
 export * from './UserResign';
 export * from './UserNewsLevelBookmark';
+export * from './UserNewsQuiz';
 export * from './UserDataKey';
 export * from './UserIdiom';
 export * from './UserIdiomRandom';

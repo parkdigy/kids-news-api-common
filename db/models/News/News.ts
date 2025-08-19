@@ -26,6 +26,7 @@ export interface TNews {
   img_offset_y: number; // 이미지 Y축 오프셋 // int, default:0
   news_category_id: TNewsCategory['id']; // 뉴스 카테고리 ID // int, FK
   news_date: Date; // 뉴스 날짜 // date
+  data_key: number; // 데이터 KEY // int, default:0
   status: TNews$Status; // 상태
   ai_type: TNews$AiType; // AI 구분
   ai_subject_id: number; // AI 부모 ID // int
@@ -39,7 +40,7 @@ export interface TNews {
 export type TNews$InsertData = TableInsertData<
   TNews,
   'id',
-  'img_url' | 'thumb_img_url' | 'img_title' | 'img_source' | 'img_offset_y' | 'ai_img_default_styles'
+  'img_url' | 'thumb_img_url' | 'img_title' | 'img_source' | 'img_offset_y' | 'ai_img_default_styles' | 'data_key'
 >;
 export type TNews$UpdateData = TableUpdateData<
   TNews,
