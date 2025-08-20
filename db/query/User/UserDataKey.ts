@@ -23,7 +23,7 @@ export default class UserDataKey extends MySqlQuery<tableName> {
     date_val?: number
   ) {
     if (dataId === this.Id.Today && !date_val) {
-      throw api.newExceptionError('UserDataKey.getDataKey: date_val is required for Today');
+      throw new Error('UserDataKey.getDataKey: date_val is required for Today');
     }
     const info = await this.find(req, { user_id: userId, data_id: dataId }).select('data_key');
     if (info) {
@@ -64,6 +64,10 @@ export default class UserDataKey extends MySqlQuery<tableName> {
     }, {} as Dict<string>);
 
     for (const dataId of finalDataIds) {
+      if (dataId === this.Id.Today && !date_val) {
+        throw new Error('UserDataKey.getDataKeyList: date_val is required for Today');
+      }
+
       if (map[dataId] !== undefined) {
         map[dataId] = `${map[dataId]}_${level}`;
       } else {
