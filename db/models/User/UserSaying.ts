@@ -9,12 +9,14 @@ export interface TUserSaying {
   /** Others */
   user_id: TUser['id']; // 회원 ID
   saying_id: TSaying['id']; // 사자성어 ID
-  /** Others */
+  study_level: number; // 학습 레벨 // tinyint, default=1
+  last_study_date: Date | null; // 마지막 학습일자
+  data_key: number; // 데이터 KEY // int, default=1
   create_date: Date; // 등록일자
   update_date: Date; // 수정일자
 }
 
-export type TUserSaying$InsertData = TableInsertData<TUserSaying, 'id'>;
+export type TUserSaying$InsertData = TableInsertData<TUserSaying, 'id', 'study_level' | 'last_study_date' | 'data_key'>;
 export type TUserSaying$UpdateData = TableUpdateData<
   TUserSaying,
   'id' | 'user_id' | 'saying_id' | 'create_date',

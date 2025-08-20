@@ -13,3 +13,5 @@ export * from './UserToday';
 export * from './UserStoreTransaction';
 export * from './UserEndFreeTrial';
 export * from './UserStudyAlarm';
+export * from './UserTodayIdiomQuiz';
+export * from './UserTodaySayingQuiz';

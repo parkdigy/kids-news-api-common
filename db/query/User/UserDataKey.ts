@@ -19,13 +19,25 @@ export default class UserDataKey extends MySqlQuery<tableName> {
     req: MyRequest,
     userId: TUserDataKey['user_id'],
     level: TUser['level'],
-    dataId: TUserDataKey['data_id']
+    dataId: TUserDataKey['data_id'],
+    date_val?: number
   ) {
+    if (dataId === this.Id.Today && !date_val) {
+      throw api.newExceptionError('UserDataKey.getDataKey: date_val is required for Today');
+    }
     const info = await this.find(req, { user_id: userId, data_id: dataId }).select('data_key');
     if (info) {
-      return `${info.data_key}_${level}`;
+      if (dataId === this.Id.Today) {
+        return `${info.data_key}_${level}_${date_val}`;
+      } else {
+        return `${info.data_key}_${level}`;
+      }
     } else {
-      return level.toString();
+      if (dataId === this.Id.Today) {
+        return `${level}_${date_val}`;
+      } else {
+        return level.toString();
+      }
     }
   }
 
@@ -36,6 +48,7 @@ export default class UserDataKey extends MySqlQuery<tableName> {
     req: MyRequest,
     userId: TUserDataKey['user_id'],
     level: TUser['level'],
+    date_val: number,
     dataIds?: TUserDataKey['data_id'][]
   ) {
     const finalDataIds = dataIds || this.Id.getList();
@@ -55,6 +68,9 @@ export default class UserDataKey extends MySqlQuery<tableName> {
         map[dataId] = `${map[dataId]}_${level}`;
       } else {
         map[dataId] = level.toString();
+      }
+      if (dataId === this.Id.Today) {
+        map[dataId] = `${map[dataId]}_${date_val}`;
       }
     }
 
