@@ -14,7 +14,9 @@ import { TableInsertData, TableUpdateData } from '@db_models_types';
 export const TDataKey$Id = {
   Notice: 'notice',
   Faq: 'faq',
-  NewsList: 'news_list',
+  NewsListLevel1: 'news_list_level_1',
+  NewsListLevel2: 'news_list_level_2',
+  NewsListLevel3: 'news_list_level_3',
   IdiomList: 'idiom_list',
   SayingList: 'saying_list',
 } as const;
