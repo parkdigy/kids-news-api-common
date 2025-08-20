@@ -44,7 +44,7 @@ export default class UserDataKey extends MySqlQuery<tableName> {
   /********************************************************************************************************************
    * 데이터 KEY 목록 조회
    * ******************************************************************************************************************/
-  async getDataKeyList(
+  async getDataKeyMap(
     req: MyRequest,
     userId: TUserDataKey['user_id'],
     level: TUser['level'],

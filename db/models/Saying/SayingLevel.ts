@@ -1,12 +1,7 @@
 import { Knex } from 'knex';
 import { TableInsertData, TableUpdateData } from '@db_models_types';
 import TSaying from './Saying';
-import { makeEnum } from '@db_models_util';
-
-/** 상태 */
-const Level = { 1: '레벨 1', 2: '레벨 2', 3: '레벨 3' };
-export type TSayingLevel$Level = keyof typeof Level;
-export const TSayingLevel$Level = makeEnum('level', Level, { 1: 'Level1', 2: 'Level2', 3: 'Level3' });
+import { Level } from '@kc_types';
 
 export interface TSayingLevel {
   /** Primary Key */
@@ -14,7 +9,7 @@ export interface TSayingLevel {
   /** Others */
   saying_level_key: string; // 속담 레벨 KEY // UQ, max:32
   saying_id: TSaying['id']; // 속담 ID // FK
-  level: TSayingLevel$Level;
+  level: Level;
   tts_url: string | null; // TTS URL // max:1024, nullable
   meaning_tts_url: string | null; // 의미 TTS URL // max:1024, nullable
   sentences: string; // 문장 // text

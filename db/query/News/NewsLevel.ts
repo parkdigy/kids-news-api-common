@@ -1,12 +1,11 @@
 import { MySqlQuery } from '@db_query_common';
 import { Knex } from 'knex';
-import { TNewsLevel$Level, TNewsLevel$Status } from '@kac_db_models';
+import { TNewsLevel$Status } from '@kac_db_models';
 
 const tableName: Knex.TableNames = 'news_level';
 type tableName = typeof tableName;
 
 export default class NewsLevel extends MySqlQuery<tableName> {
-  Level = TNewsLevel$Level;
   Status = TNewsLevel$Status;
 
   constructor() {

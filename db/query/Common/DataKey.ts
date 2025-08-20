@@ -29,6 +29,18 @@ export default class DataKey extends MySqlQuery<tableName> {
   }
 
   /********************************************************************************************************************
+   * 데이터 KEY 조회
+   * ******************************************************************************************************************/
+  async getDataKeyMap(req: MyRequest, ids: TDataKey$Id[]) {
+    const list = await this.getBuilder(req).select('id', 'data_key').whereIn('id', ids);
+
+    return list.reduce((acc, item) => {
+      acc[item.id] = item.data_key.toString();
+      return acc;
+    }, {} as Dict<string>);
+  }
+
+  /********************************************************************************************************************
    * 데이터 KEY 증가
    * ******************************************************************************************************************/
   async increaseDataKey(req: MyRequest, id: TDataKey$Id) {

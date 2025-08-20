@@ -5,7 +5,7 @@
 import { Knex } from 'knex';
 import { TableInsertData, TableUpdateData } from '@db_models_types';
 import { makeEnum } from '@db_models_util';
-import { TNewsLevel$Level } from '../News';
+import { Level } from '@kc_types';
 
 /** 상태 */
 const Status = { ON: '사용', RESIGN: '탈퇴' };
@@ -48,7 +48,7 @@ export interface TUser {
   reg_app_key: string; // 가입 APP KEY // max:32
   reg_install_app_key: string; // 가입 설치 APP KEY // max:32
   resign_date: Date | null; // 탈퇴 일자
-  level: TNewsLevel$Level; // 뉴스 레벨 // tinyint, default:1
+  level: Level; // 뉴스 레벨 // tinyint, default:1
   is_first_settings_done: boolean; // 최초 설정 완료 여부 // boolean // default:0
   is_end_free_trial: boolean; // 무료체험 종료 여부 // boolean // default:0
   is_premium: boolean; // 프리미엄 여부 // boolean // default:0
