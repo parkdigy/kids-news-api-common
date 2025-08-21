@@ -22,6 +22,11 @@ const RegType = { GUEST: '비회원', KAKAO: '카카오', NAVER: '네이버', GO
 export type TUser$RegType = keyof typeof RegType;
 export const TUser$RegType = makeEnum('reg_type', RegType);
 
+/** 가입 OS */
+const UserType = { U: '회원', OP: '운영자' };
+export type TUser$UserType = keyof typeof UserType;
+export const TUser$UserType = makeEnum('user_type', UserType, { U: 'User', OP: 'Operator' });
+
 /** 프리미엄 구입 스토어 */
 const PremiumPurchaseStore = { A: '앱스토어', G: '구글플레이', F: '무료제공' };
 export type TUser$PremiumPurchaseStore = keyof typeof PremiumPurchaseStore;
@@ -56,6 +61,7 @@ export interface TUser {
   premium_transaction_id: number | null; // 프리미엄 구입 트랜잭션 ID // int
   data_key: number; // 데이터 KEY // default:0
   last_data_app_key: string | null; // 마지막 데이터 수정 APP KEY // max:32
+  user_type: TUser$UserType; // 회원 구분 // default:U
   status: TUser$Status; // 상태
   create_date: Date; // 등록일자
   update_date: Date; // 수정일자
@@ -76,6 +82,7 @@ export type TUser$InsertData = TableInsertData<
   | 'premium_transaction_id'
   | 'data_key'
   | 'last_data_app_key'
+  | 'user_type'
 >;
 export type TUser$UpdateData = TableUpdateData<TUser, 'id' | 'create_date', 'update_date'>;
 
