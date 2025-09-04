@@ -84,7 +84,7 @@ export type TUser$InsertData = TableInsertData<
   | 'last_data_app_key'
   | 'user_type'
 >;
-export type TUser$UpdateData = TableUpdateData<TUser, 'id' | 'create_date', 'update_date'>;
+export type TUser$UpdateData = TableUpdateData<TUser, 'id' | 'uuid' | 'create_date', 'update_date'>;
 
 export default TUser;
 
